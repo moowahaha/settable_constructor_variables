@@ -12,4 +12,8 @@ describe TestClass do
   it 'should set instance variable' do
     @test.instance_variable_get('@some_variable').should == 34
   end
+
+  it 'should throw an exception if the parameters are not a hash' do
+    -> {TestClass.new 'hello'}.should raise_error(ArgumentError)
+  end
 end
