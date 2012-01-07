@@ -1,3 +1,3 @@
 module SettableConstructorVariables
-  VERSION = 2
+  VERSION = 3
 end

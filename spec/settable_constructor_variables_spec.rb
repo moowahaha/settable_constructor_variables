@@ -16,4 +16,11 @@ describe TestClass do
   it 'should throw an exception if the parameters are not a hash' do
     -> {TestClass.new 'hello'}.should raise_error(ArgumentError)
   end
+
+  it 'should cope with parameter class that is subclass of Hash' do
+    class SomeType < Hash; end
+    params = SomeType.new
+    params[:some_accessor] = 'abc'
+    TestClass.new(params).some_accessor.should == 'abc'
+  end
 end
