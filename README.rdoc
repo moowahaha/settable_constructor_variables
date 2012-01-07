@@ -1,0 +1,27 @@
+Allows you to set instance variables through constructor parameters. Dead simple but resolves an annoyance.
+
+ require 'settable_constructor_variables'
+
+ class MyClass
+   include SettableConstructorVariables
+   attr_accessor :something
+ end
+
+ MyClass.new(something: 'abc').something #=> 'abc'
+
+To use this in conjunction with your own constructor...
+
+  class MyClass
+    include SettableConstructorVariables
+    attr_accessor :something
+
+    def initialize params
+      # do something
+      super params
+      # do something else
+    end
+  end
+
+Tinniest gem ever and having put the effort in to make it a gem, I am wondering how worthwhile the effort was...
+
+... And now I wait for somebody to tell me it has already been done!
